@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-multipart
+ultralytics
+Pillow
+numpy
+rembg[cpu]
+tensorflow
+matplotlib
+scikit-learn
+torch
