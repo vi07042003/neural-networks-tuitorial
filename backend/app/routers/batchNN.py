@@ -35,6 +35,9 @@ model = Model()
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(),
                            lr=0.001)
+scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.1)
+
+
 for epoch in range(2):
         model.train()
         running_loss = 0.0
@@ -44,6 +47,8 @@ for epoch in range(2):
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
+            scheduler.step()
+            scheduler.optimizer.zero_grad()
             running_loss += loss.item()
 
             print(f"Epoch [{epoch + 1}/2], Loss: {running_loss / len(train_loader):.4f}")
