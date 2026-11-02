@@ -56,3 +56,16 @@ test_loss, test_accuracy = model.evaluate(
 
 print("Test Loss:", test_loss)
 print("Test Accuracy:", test_accuracy)
+
+
+plt.figure(figsize=(8, 5))
+
+plt.plot(history.history["loss"], label="Training Loss")
+plt.plot(history.history["val_loss"], label="Validation Loss")
+
+plt.xlabel("Epoch")
+plt.ylabel("Loss")
+plt.title("Training and Validation Loss")
+plt.legend()
+plt.savefig("optimizers.png")
+plt.show()
